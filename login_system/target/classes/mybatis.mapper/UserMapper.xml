@@ -5,6 +5,19 @@
 
 <mapper namespace="com.example.login_system.mapper.UserMapper">
     <select id="getAllUsers" resultType="com.example.login_system.entity.User">
-        SELECT * FROM user
+        SELECT ID FROM user where ID="lakezoo"
     </select>
+    <select id="getUserById" resultType="com.example.login_system.entity.User">
+        SELECT ID,Password FROM user where ID=(#{ID})
+    </select>
+    <select id="getEmailById" resultType="com.example.login_system.entity.User">
+        SELECT Email FROM user where ID=(#{ID})
+    </select>
+    <update id="setEmailById" parameterType="com.example.login_system.entity.User">
+        UPDATE user set Email=(#{Email}) where ID=(#{ID})
+    </update>
+    <insert id="addUser" parameterType="com.example.login_system.entity.User">
+        INSERT INTO user (ID, Password)
+        VALUES (#{ID}, #{Password})
+    </insert>
 </mapper>

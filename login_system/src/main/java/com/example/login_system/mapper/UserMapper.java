@@ -8,6 +8,11 @@ import java.util.List;
 
 @Mapper
 public interface UserMapper {
-    @Select("SELECT * FROM user")
     List<User> getAllUsers();
+
+    void addUser(String ID, String Password);
+    void setEmailById(String ID, String Email);
+    List<User> getEmailById(String ID);
+
+    List<User> getUserById(String ID);
 }
