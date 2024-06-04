@@ -59,14 +59,20 @@ public class UserService {
         return user.get(0).getEmail();
     }
 
-    public String setUserEmail(String email,HttpServletRequest request) {
+    public String setUserEmail(String email,String hashedEmail,HttpServletRequest request) {
         String value = (String) request.getSession().getAttribute("myValue");
         if(value==null)
         {
             return "invalid session";
         }
-        userMapper.setEmailById(value,email);
-        return "success";
+        Hash hash = new Hash();
+        String compHashedEmail = hash.getSHA256Hash(email);
+        if(compHashedEmail==hashedEmail)
+        {
+            userMapper.setEmailById(value,email);
+            return "success";
+        }
+        return "message auth fail";
     }
 
 

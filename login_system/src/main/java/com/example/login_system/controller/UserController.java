@@ -39,9 +39,9 @@ public class UserController {
 
     //이메일 설정
     @RequestMapping("/setEmail")
-    public String setUserEmail(HttpServletRequest request,@RequestParam(value="email") String email)
+    public String setUserEmail(HttpServletRequest request,@RequestParam(value="email") String email,@RequestParam(value="hashedEmail") String hashedEmail)
     {
-        return userService.setUserEmail(email,request);
+        return userService.setUserEmail(email,hashedEmail,request);
     }
 
     @RequestMapping("/get")
