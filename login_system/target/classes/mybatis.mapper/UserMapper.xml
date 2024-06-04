@@ -17,7 +17,7 @@
         UPDATE user set Email=(#{Email}) where ID=(#{ID})
     </update>
     <insert id="addUser" parameterType="com.example.login_system.entity.User">
-        INSERT INTO user (ID, Password)
-        VALUES (#{ID}, #{Password})
+        INSERT INTO user (ID, Password, Email)
+        VALUES (#{ID}, #{Password}, #{Email})
     </insert>
 </mapper>

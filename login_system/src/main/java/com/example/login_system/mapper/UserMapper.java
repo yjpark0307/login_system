@@ -10,7 +10,7 @@ import java.util.List;
 public interface UserMapper {
     List<User> getAllUsers();
 
-    void addUser(String ID, String Password);
+    void addUser(String ID, String Password, String Email);
     void setEmailById(String ID, String Email);
     List<User> getEmailById(String ID);
 

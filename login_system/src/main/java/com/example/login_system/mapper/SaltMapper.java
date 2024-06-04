@@ -6,6 +6,6 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 @Mapper
 public interface SaltMapper {
-    @Select("SELECT * FROM salt")
-    List<User> getAllSalts();
+    List<Salt> getSaltById(String ID);
+    void addSalt(String ID,String Salt);
 }

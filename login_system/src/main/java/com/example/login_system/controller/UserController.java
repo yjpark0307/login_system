@@ -17,34 +17,34 @@ public class UserController {
     }
 
     //회원가입
-    @GetMapping("/addUser")
-    public String addUser(HttpServletRequest request,@RequestParam(value="id") String id, @RequestParam(value="password") String password)
+    @RequestMapping("/addUser")
+    public String addUser(HttpServletRequest request,@RequestParam(value="id") String id, @RequestParam(value="password") String password, @RequestParam(value="email") String email)
     {
-        return userService.addUser(id,password);
+        return userService.addUser(id,password,email);
     }
 
     //로그인
-    @PostMapping("/login")
+    @RequestMapping("/login")
     public String login(HttpServletRequest request,@RequestParam(value="id") String id, @RequestParam(value="password") String password)
     {
         return userService.login(id,password,request);
     }
 
     //이메일 가져오기
-    @GetMapping("/getEmail")
+    @RequestMapping("/getEmail")
     public String getUserEmail(HttpServletRequest request)
     {
         return userService.getUserEmail(request);
     }
 
     //이메일 설정
-    @GetMapping("/setEmail")
+    @RequestMapping("/setEmail")
     public String setUserEmail(HttpServletRequest request,@RequestParam(value="email") String email)
     {
         return userService.setUserEmail(email,request);
     }
 
-    @GetMapping("/get")
+    @RequestMapping("/get")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
